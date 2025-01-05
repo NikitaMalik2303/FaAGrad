@@ -1,0 +1,1 @@
+Epoch 11: Train Loss = 0.7392, Train Accuracy : 2353.6418, dp_diff : 0.0150, dp_ratio : 0.9849, eod_Diff : 0.0281, eod_ratio : 0.9717
