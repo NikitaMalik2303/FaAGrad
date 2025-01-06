@@ -17,4 +17,4 @@ Install necessary libraries by running:
 ```bash
 pip install -r requirements.txt
 
-
+![FaAlGrad](FaAlGrad_Diagram.png)
