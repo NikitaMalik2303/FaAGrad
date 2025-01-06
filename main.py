@@ -9,7 +9,6 @@ from config import *
 from maml import *
 
 from fairlearn.metrics import MetricFrame
-import torch.utils.tensorboard as tb
 import shutil
 import shap
 import matplotlib.pyplot as plt
@@ -19,6 +18,7 @@ from metrics import *
 from mlp import *
 
 
+seed = 102
 def seed_everything(seed: int):
     torch.manual_seed(seed)
     random.seed(seed)
@@ -321,8 +321,8 @@ for epoch in range(num_epochs):
     print(f"Epoch {epoch}: Train Loss = {train_loss:.4f}, Train Accuracy : {train_accuracy:.4f}, dp_diff : {train_dp_diff:.4f}, dp_ratio : {train_dp_ratio:.4f}, eod_Diff : {train_eod_diff:.4f}, eod_ratio : {train_eod_ratio:.4f}")
     print(f"Epoch {epoch}: Val Loss = {test_loss:.4f}, Val Accuracy : {test_accuracy:.4f}, dp_diff : {test_dp_diff:.4f}, dp_ratio : {test_dp_ratio:.4f}, eod_Diff : {test_eod_diff:.4f}, eod_ratio : {test_eod_ratio:.4f}")
 
-    write_to_logs(f"./checkpoints/Compass/record_train.txt", f"Epoch {epoch}: Train Loss = {train_loss:.4f}, Train Accuracy : {train_accuracy:.4f}, dp_diff : {train_dp_diff:.4f}, dp_ratio : {train_dp_ratio:.4f}, eod_Diff : {train_eod_diff:.4f}, eod_ratio : {train_eod_ratio:.4f}", "w")
-    write_to_logs(f"./checkpoints/Compass/record_val.txt", f"Epoch {epoch}: Val Loss = {test_loss:.4f}, Val Accuracy : {test_accuracy:.4f}, dp_diff : {test_dp_diff:.4f}, dp_ratio : {test_dp_ratio:.4f}, eod_Diff : {test_eod_diff:.4f}, eod_ratio : {test_eod_ratio:.4f}", "w")
+    write_to_logs(f"./checkpoints/Compass/record_train.txt", f"Epoch {epoch}: Train Loss = {train_loss:.4f}, Train Accuracy : {train_accuracy:.4f}, dp_diff : {train_dp_diff:.4f}, dp_ratio : {train_dp_ratio:.4f}, eod_Diff : {train_eod_diff:.4f}, eod_ratio : {train_eod_ratio:.4f}", "a")
+    write_to_logs(f"./checkpoints/Compass/record_val.txt", f"Epoch {epoch}: Val Loss = {test_loss:.4f}, Val Accuracy : {test_accuracy:.4f}, dp_diff : {test_dp_diff:.4f}, dp_ratio : {test_dp_ratio:.4f}, eod_Diff : {test_eod_diff:.4f}, eod_ratio : {test_eod_ratio:.4f}", "a")
 
 
     if test_loss < best_val_loss:

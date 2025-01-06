@@ -6,8 +6,6 @@ num_epochs = 100
 max_patience = 10 
 
 
-seed = 102
-
 
 # For compass dataset the number of input features is 8
 input_dim = 8
@@ -22,8 +20,7 @@ inner_args = {
 }
 
 meta_args = {
-    'meta_train': True,     # Whether to train the model in meta-learning mode
-    'lr': 0.001,             # Learning rate for the meta-update step
+    'meta_train': True,     # Whether to train the model in meta-learning mod            
     'num_iter': 1           # num
 }
 
