@@ -328,7 +328,7 @@ for epoch in range(num_epochs):
     if test_loss < best_val_loss:
         best_val_loss = test_loss
         current_patience = 0
-        torch.save(model.state_dict(), "best_model.pt") 
+        torch.save(model.state_dict(), "model/best_model.pt") 
     else:
         current_patience += 1
         
@@ -336,7 +336,7 @@ for epoch in range(num_epochs):
         print("Early stopping: No improvement in validation loss for consecutive epochs.")
         break
 
-model.load_state_dict(torch.load("best_model.pt"))
+model.load_state_dict(torch.load("model/best_model.pt"))
 
 final_loss, final_accuracy, dp_diff, dp_ratio, eod_diff, eod_ratio = test(model, X_test, Y_test, A_test, criterion)
 
@@ -348,5 +348,5 @@ explainer = shap.Explainer(predict_with_pytorch_model, X_train.numpy())
 shap_values = explainer(X_test.numpy())
 
 shap.summary_plot(shap_values, X_test, feature_names=X.columns, show=False, title = "shap graph for compass dataset using fairgrads")
-plt.savefig("compass_maml.pdf", dpi=600, bbox_inches="tight")
+plt.savefig("figures/compass_maml.pdf", dpi=600, bbox_inches="tight")
 

@@ -21,8 +21,8 @@ from fairlearn.metrics import MetricFrame, demographic_parity_difference, equali
 # Assuming 1 is positive outcome, 1 is the protected class
 PROTECTED_CLASS = 1
 UNPROTECTED_CLASS = 0
-POSITIVE_OUTCOME = 1
-NEGATIVE_OUTCOME = 0 
+POSITIVE_OUTCOME = 0
+NEGATIVE_OUTCOME = 1 
 
 import numpy as np
 import math
