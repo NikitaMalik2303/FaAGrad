@@ -57,6 +57,8 @@ python main.py --split_mode <config> --split_ratio <value>
 
 2) **--split_ratio**: (Optional) split of the training data between the two subsets: Xq and Xs. (0.5 =< split_ratio =< 0.8)
 
+## Example
 
-
-
+```python
+python main.py --split_mode config_1
+```
